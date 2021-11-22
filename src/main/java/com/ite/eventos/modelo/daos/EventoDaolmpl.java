@@ -5,12 +5,14 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.ite.eventos.beans.Evento;
 
 
 
 
-
+@Repository 
 public class EventoDaolmpl implements IntEventoDao, Serializable{
 	
 	private static final long serialVersionUID = 1L;
@@ -42,10 +44,12 @@ public class EventoDaolmpl implements IntEventoDao, Serializable{
 	public List<Evento> findByEstado(String estado) {
 		List<Evento> aux = new ArrayList<Evento>();
 		for (Evento eve: lista) {
-			if(eve.getEstado().equals(estado));
+			if(eve.getEstado().equals(estado));{
 			aux.add(eve);
+			}
 		}
-		return aux;
+		lista = aux;
+		return lista;
 	}
 
 	@Override
@@ -58,10 +62,12 @@ public class EventoDaolmpl implements IntEventoDao, Serializable{
 	public List<Evento> findByDetacado(String destacado) {
 		List<Evento> aux = new ArrayList<Evento>();
 		for (Evento eve: lista) {
-			if(eve.getEstado().equals(destacado));
+			if(eve.getDestacado().equals(destacado)) {
 			aux.add(eve);
 		}
-		return aux;
+		}
+		lista = aux;
+		return lista;
 	}
 
 	@Override

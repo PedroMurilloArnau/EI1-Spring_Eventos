@@ -13,6 +13,8 @@ public interface IntUsuariosDao {
 	int addUsuario(Usuarios usuario);
 	
 	Usuarios findByNombrePasword(String userName, String pasword);
+	
+	Usuarios findById(int idUsuario);
 
 }
 
